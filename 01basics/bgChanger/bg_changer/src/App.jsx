@@ -7,7 +7,8 @@ function App() {
 
   return (
     <>
-    <div className="w-full h-screen duration-200" style={{backgroundColor:color}}>
+    <div className="w-full h-screen duration-200" style={{backgroundColor:color}}> 
+      {/* vaibhav */}
      
      <div className="fixed flex flex-wrap justify-center bottom-12 inset-x-0 px-2 py-2">
       <div className="fixed flex flex-wrap justify-center gap-3 px-3 py-2 bg-white rounded-2xl">
@@ -19,7 +20,7 @@ function App() {
     <button className="outline-none px-4 py-1 rounded-full text-white shadow-lg"style={{backgroundColor:"orange"}} onClick={()=>setColor("orange")}>Orange</button>
     <button className="outline-none px-4 py-1 rounded-full text-white shadow-lg"style={{backgroundColor:"black"}} onClick={()=>setColor("black")}>BLack</button>
     <button className="outline-none px-4 py-1 rounded-full text-white shadow-lg"style={{backgroundColor:"blue"}} onClick={()=>setColor("blue")}>Blue</button>
-
+ 
       </div>
      </div>
     </div>
