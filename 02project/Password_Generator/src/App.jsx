@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState ,useRef} from 'react'
 
 function App() {
 
@@ -36,12 +36,19 @@ function App() {
     if (password) {
       navigator.clipboard.writeText(password).then(() => {
         setCopySuccess(true); // Show modal
-        setTimeout(() => setCopySuccess(false), 500); // Auto-hide after 2 seconds
-      }, () => {
+        setTimeout(() => setCopySuccess(false), 500); 
+        
+       
+          passwordInputRef.current.select(); // Select the text in the input
+        
+      }, 
+      () => {
         alert('Failed to copy!'); // Handle failure case
       });
     }
   }
+
+  const passwordInputRef = useRef(null); 
 
   return (
     <>
@@ -54,7 +61,8 @@ function App() {
             value={password}
             className='outline-none w-full py-3 px-4 text-lg bg-gray-800 text-white rounded-l-md placeholder-gray-400 focus:ring-2 focus:ring-blue-500 transition-all duration-300 ease-in-out'
             placeholder='Your password will appear here'
-            readOnly />
+            readOnly 
+            ref={passwordInputRef}/>
           <button
             className='bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 text-lg font-semibold rounded-r-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ease-in-out'
             onClick={copyToClipboard}>
@@ -102,7 +110,7 @@ function App() {
       {/* copy success */}
       {copySuccess && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white text-center py-4 px-6 rounded-md shadow-lg">
+          <div className=" from-gray-700 to-gray-900 text-4xl text-center py-4 px-6 rounded-md shadow-lg">
             <p className="text-green-500 text-xl font-semibold">Password Copied!</p>
           </div>
         </div>
