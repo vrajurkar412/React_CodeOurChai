@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState ,useRef} from 'react'
+import { useCallback, useEffect, useState, useRef } from 'react'
 
 function App() {
 
@@ -36,19 +36,19 @@ function App() {
     if (password) {
       navigator.clipboard.writeText(password).then(() => {
         setCopySuccess(true); // Show modal
-        setTimeout(() => setCopySuccess(false), 500); 
-        
-       
-          passwordInputRef.current.select(); // Select the text in the input
-        
-      }, 
-      () => {
-        alert('Failed to copy!'); // Handle failure case
-      });
+        setTimeout(() => setCopySuccess(false), 500);
+
+
+        passwordInputRef.current.select(); // Select the text in the input
+
+      },
+        () => {
+          alert('Failed to copy!'); // Handle failure case
+        });
     }
   }
 
-  const passwordInputRef = useRef(null); 
+  const passwordInputRef = useRef(null);
 
   return (
     <>
@@ -61,8 +61,8 @@ function App() {
             value={password}
             className='outline-none w-full py-3 px-4 text-lg bg-gray-800 text-white rounded-l-md placeholder-gray-400 focus:ring-2 focus:ring-blue-500 transition-all duration-300 ease-in-out'
             placeholder='Your password will appear here'
-            readOnly 
-            ref={passwordInputRef}/>
+            readOnly
+            ref={passwordInputRef} />
           <button
             className='bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 text-lg font-semibold rounded-r-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ease-in-out'
             onClick={copyToClipboard}>
